@@ -1,0 +1,5 @@
+<view class="container">
+    <image src="{{first?first_yes_img:first_no_img}}" bind:tap="onPrev"/>
+    <text>{{title}}</text>
+    <image src="{{end?end_yes_img:end_no_img}}" bind:tap="onNext"/>
+</view>

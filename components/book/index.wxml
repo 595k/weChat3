@@ -1,0 +1,6 @@
+<view class="container" bind:tap="onDetail">
+    <image src="{{item.image}}" />
+    <text class="title">{{item.title}}</text>
+    <text class="author">{{item.author}}</text>
+    <text class="nums" wx:if="{{hasNums}}">{{item.fav_nums}} 喜欢</text>
+</view>

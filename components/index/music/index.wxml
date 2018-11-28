@@ -1,0 +1,10 @@
+<view class="container">
+    <image src="{{img}}" class="{{playing?'rotation':''}}"></image>
+    <image src="{{playing?playingUrl:waittingUrl}}" bind:tap="onPlay"></image>
+    <view class="tag">
+        <text>音</text>
+        <text>乐</text>
+        <text>。</text>
+    </view>
+    <text class="con">{{content}}</text>
+</view>

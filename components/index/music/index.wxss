@@ -1,0 +1,38 @@
+@import "../style/base.wxss";
+
+.container image:nth-child(1){
+    width:450rpx;
+    height:450rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.container image:nth-child(2){
+    width:120rpx;
+    height:120rpx;
+    position: absolute;
+    top:120px;
+}
+
+.tag text:nth-child(1){
+    color:black;
+}
+
+@-webkit-keyframes rotation {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+  
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+.container .rotation {
+    -webkit-transform: rotate(360deg);
+    animation: rotation 12s linear infinite;
+    -moz-animation: rotation 12s linear infinite;
+    -webkit-animation: rotation 12s linear infinite;
+    -o-animation: rotation 12s linear infinite;
+  }
+

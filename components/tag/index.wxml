@@ -1,0 +1,4 @@
+<view bind:tap="onTag" class='container tag-class'>
+  <text>{{text}}</text>
+  <slot class="after" name="after"></slot>
+</view>

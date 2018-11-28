@@ -1,0 +1,13 @@
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    
+}
+
+.container book-cmp{
+    margin: 50rpx 0px;
+}

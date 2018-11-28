@@ -1,0 +1,5 @@
+<view class="container">
+    <block wx:for="{{bookData}}" wx:key="{{item.id}}">
+        <book-cmp item="{{item}}" hasNums="{{hasNums}}" />
+    </block>
+</view>

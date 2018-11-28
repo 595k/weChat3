@@ -1,0 +1,9 @@
+<view class="container">
+    <image src="{{img}}"></image>
+    <view class="tag">
+        <text>电</text>
+        <text>影</text>
+        <text>。</text>
+    </view>
+    <text class="con">{{content}}</text>
+</view>

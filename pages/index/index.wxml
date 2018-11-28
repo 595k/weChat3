@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="header">
+    <epsoide-cmp index="{{classic.index}}" />
+    <view class="header-ls">
+      <like-cmp like="{{like}}" count="{{count}}" bind:like="onLike2" />
+      <img-btn-cmp class="share-btn" open-type="share">
+        <image class="share" slot="img" src="/images/icon/share.png" />
+      </img-btn-cmp>
+    </view>
+  </view>
+  <view class="content">
+    <movie-cmp wx:if="{{classic.type==100}}" img="{{classic.image}}" type="{{classic.type}}" content="{{classic.content}}" />
+    <music-cmp wx:if="{{classic.type==200}}" src="{{classic.url}}" title="{{classic.title}}" img="{{classic.image}}" type="{{classic.type}}" content="{{classic.content}}" />
+    <essay-cmp wx:if="{{classic.type==300}}" img="{{classic.image}}" type="{{classic.type}}" content="{{classic.content}}" />
+    <navi-cmp class="navi" end="{{end}}" first="{{first}}" title="{{classic.title}}" bind:classic="getClassic" />
+  </view>
+</view>
