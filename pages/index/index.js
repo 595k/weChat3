@@ -13,19 +13,21 @@ Page({
     end: true,
     first: false,
     like: false,
-    count: 0
+    count: 0,
+    total: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取最新一期ks
+    //获取最新一期
     classicModel.getLatest(data => {
       this.setData({
         classic: data,
         like: data.like_status,
-        count: data.fav_nums
+        count: data.fav_nums,
+        total: data.index
       })
     })
   },
@@ -37,11 +39,12 @@ Page({
 
   //获取上。下期的信息
   getClassic: function (event) {
+    console.log(event.detail.type)
     classicModel.getClassic(event.detail.type, this.data.classic.index, data => {
       this.setData({
         classic: data,
         first: classicModel.isFirst(data.index),
-        end: classicModel.isEnd(data.index),
+        end: classicModel.isEnd(data.index, this.data.total),
       })
       likeModel.getLike(data.type, data.id, success => {
         this.setData({

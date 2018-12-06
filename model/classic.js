@@ -7,7 +7,7 @@ class classic extends Http {
             url: "/classic/latest",
             success: res => {
                 //缓存
-                wx.setStorageSync("classic-end-" + res.index, res)
+                wx.setStorageSync("classic-" + res.index, res)
                 //处理之后把数据返回出去
                 callback(res)
             }
@@ -15,13 +15,13 @@ class classic extends Http {
     }
     //获取上，下期的数据
     getClassic(type, index, success) {
-        let key = type == "next" ? index + 1 : index - 1
-        if (this.isEnd(key)) {
-            success(wx.getStorageSync("classic-end-" + key))
+        let key = type == "prev" ? index - 1 : index + 1
+        if (this.isEnd(key) === 1) {
+            success(wx.getStorageSync("classic-" + key))
         } else {
             let data = wx.getStorageSync("classic-" + key)
             if (!data) {
-                let url = type == "first" ? "/classic/" + index + "/next" : "/classic/" + index + "/previous"
+                let url = type == "next" ? "/classic/" + index + "/next" : "/classic/" + index + "/previous"
                 let params = {
                     url: url,
                     success: res => {
@@ -39,8 +39,8 @@ class classic extends Http {
     isFirst(index) {
         return index == 1 ? true : false
     }
-    isEnd(index) {
-        return wx.getStorageSync("classic-end-" + index) ? true : false
+    isEnd(index, total) {
+        return index == total ? true : false
     }
 }
 

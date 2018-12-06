@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cloud/cloud",
     "pages/index/index",
     "pages/book/book",
     "pages/detail/detail"
@@ -7,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "小小",
+    "navigationBarTitleText": "代码需要艺术",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": "5"
   },
@@ -27,6 +28,12 @@
         "text": "书单",
         "iconPath": "/images/tab/book.png",
         "selectedIconPath": "/images/tab/book@highlight.png"
+      },
+      {
+        "pagePath":"pages/cloud/cloud",
+        "text":"云开发",
+        "iconPath":"/images/tab/book.png",
+        "selectedIconPath":"/images/tab/book@highlight.png"
       }
     ]
   }
