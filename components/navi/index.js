@@ -13,10 +13,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-    first_yes_img: "images/triangle.dis@left.png",
-    first_no_img: "images/triangle@left.png",
-    end_yes_img: "images/triangle.dis@right.png",
-    end_no_img: "images/triangle@right.png"
+    first_yes_img: "images/triangle.dis@right.png",
+    first_no_img: "images/triangle@right.png",
+    end_yes_img: "images/triangle.dis@left.png",
+    end_no_img: "images/triangle@left.png"
   },
 
   /**

@@ -10,12 +10,6 @@ Component({
   properties: {
     openType: {
       type: String
-    },
-    imageSrc: {
-      type: String
-    },
-    bindgetuserinfo: {
-      type: String
     }
   },
 
@@ -26,7 +20,7 @@ Component({
 
   },
 
-  
+
 
   /**
    * 组件的方法列表

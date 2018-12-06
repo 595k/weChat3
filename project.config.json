@@ -1,4 +1,5 @@
 {
+	"cloudfunctionRoot": "cloud/",
 	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
@@ -11,7 +12,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.1",
 	"appid": "wx060b1aa7da1f9c63",
 	"projectname": "stu",
 	"debugOptions": {
