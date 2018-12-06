@@ -16,7 +16,7 @@ class classic extends Http {
     //获取上，下期的数据
     getClassic(type, index, success) {
         let key = type == "prev" ? index - 1 : index + 1
-        if (this.isEnd(key) === 1) {
+        if (wx.getStorageSync("classic-" + key)) {
             success(wx.getStorageSync("classic-" + key))
         } else {
             let data = wx.getStorageSync("classic-" + key)

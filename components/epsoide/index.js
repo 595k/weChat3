@@ -9,10 +9,11 @@ Component({
       observer: function (newVal, oldVal, changedPath) {
         //数据改变时，会执行这个
         if (newVal < 10) {
-          this.setData({
-            _index: "0" + newVal
-          })
+          newVal = "0" + newVal
         }
+        this.setData({
+          _index: newVal
+        })
       }
 
     },

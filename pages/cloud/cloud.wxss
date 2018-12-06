@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 34rpx;
 }
 
 .container .avatar{
@@ -26,8 +27,18 @@
 .container text,.select{
     width: 100%;
     line-height: 52px;
-    font-size: 34rpx;
     color: #007aff;
+}
+
+
+.container .buttonData{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container .buttonData button{
+    width: 40%;
 }
 
     

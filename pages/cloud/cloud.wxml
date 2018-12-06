@@ -10,13 +10,13 @@
             </picker>
         </view>
         <view>
-            <input placeholder=" 标题： 李安《饮食男女》" name="title"/>
+            <input placeholder=" 标题： 李安《饮食男女》" name="title" />
         </view>
         <view>
             <textarea placeholder="介绍内容" maxlength="50" style="height:80px;" name="content" />
         </view>
         <view wx:if="{{music}}">
-            <input placeholder="复制网易云播放地址中的ID就可以了" name="musicUrl"/>
+            <input placeholder="复制网易云播放地址中的ID就可以了" name="musicUrl" />
         </view>
         <view>
             <text bind:tap="addImg">上传图片</text>
@@ -24,6 +24,9 @@
         <view wx:if="{{imgUrl}}">
             <image src="{{imgUrl}}" mode="aspectFit" name="imgUrl"></image>
         </view>
-        <button form-type="submit" bindtap='insertData'>添加数据</button>
+        <view class="buttonData">
+            <button form-type="submit">添加数据</button>
+            <button form-type="reset" id="reset">重置数据</button>
+        </view>
     </form>
 </view>

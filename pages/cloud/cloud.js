@@ -15,6 +15,7 @@ Page({
     multiIndex: [100, 200, 300],
     multiArray: ["电影", "音乐", "句子"],
     index: 0,
+    image: 0,
     imgUrl: "",
     music: false
   },
@@ -70,6 +71,7 @@ Page({
           filePath: tempFilePaths,
           success: res => {
             this.setData({
+              image: res.fileID,
               imgUrl: tempFilePaths
             })
             httpModel._showError("上传成功")
@@ -92,16 +94,20 @@ Page({
     let url = ""
     const num = 0
     const type = this.data.multiIndex[this.data.index]
+    const image = this.data.image
+    const time = new Date().getTime()
     if (this.data.music) {
       url = trim(event.detail.value.musicUrl)
       if (isNaN(url) || url == "") {
         httpModel._showError("音乐格式错误")
         return
       }
+      url += "http://music.163.com/song/media/outer/url?id=" + url + ".mp3"
     }
-    cloudModel.addCloud("like", { title, content, url, num, type },
+    cloudModel.addCloud("like", { title, content, url, num, type, image, time },
       success => {
         httpModel._showError("上传成功")
+        document.getElementById("reset").click()
       }, fail => {
         console.log(fail)
         httpModel._showError("上传失败")

@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <epsoide-cmp index="{{classic.index}}" />
+    <epsoide-cmp index="{{index}}" />
     <view class="header-ls">
       <like-cmp like="{{like}}" count="{{count}}" bind:like="onLike2" />
       <img-btn-cmp class="share-btn" open-type="share">
