@@ -44,13 +44,14 @@ class cloud {
      * @param {*} dataName 表名
      * @param {*} success 
      */
-    getLatest(dataName, success) {
+    getLatest(dataName, total, success) {
         this.db.collection(dataName).orderBy("time", "desc").limit(1).get({
             success: res => {
                 this.db.collection(dataName).count({
                     success: data => {
                         let result = res.data[0]
-                        result.count = data.total
+                        result.index = data.total + total
+                        wx.setStorageSync("classic-" + result.index, result)
                         success(result)
                     }
                 })

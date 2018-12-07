@@ -10,10 +10,10 @@
             </picker>
         </view>
         <view>
-            <input placeholder=" 标题： 李安《饮食男女》" name="title" />
+            <input placeholder=" 标题： 李安《饮食男女》" focus="true" name="title" value="{{title}}"/>
         </view>
         <view>
-            <textarea placeholder="介绍内容" maxlength="50" style="height:80px;" name="content" />
+            <textarea placeholder="介绍内容" maxlength="50" style="height:80px;" name="content" value="{{content}}"/>
         </view>
         <view wx:if="{{music}}">
             <input placeholder="复制网易云播放地址中的ID就可以了" name="musicUrl" />

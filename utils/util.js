@@ -44,7 +44,9 @@ const isBlank = function isBlank(str) {
  *  字符串去空
  */
 const trim = function trim(str) {
-  return str.replace(new RegExp(/\s/ig), "")
+  let trimLeft = /^\s+/
+  let trimRight = /\s+$/
+  return str.replace(trimLeft, "").replace(trimRight, "");
 }
 
 module.exports = {

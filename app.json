@@ -32,8 +32,8 @@
       {
         "pagePath":"pages/cloud/cloud",
         "text":"云开发",
-        "iconPath":"/images/tab/book.png",
-        "selectedIconPath":"/images/tab/book@highlight.png"
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png"
       }
     ]
   }

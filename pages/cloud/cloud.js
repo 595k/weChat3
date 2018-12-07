@@ -66,17 +66,21 @@ Page({
         const tempFilePaths = res.tempFilePaths[0]
         let data = new Date()
         const name = data.getTime() + tempFilePaths.match(/\.[^.]+?$/)[0]
+        wx.showLoading({
+          title: '上传中',
+        })
         wx.cloud.uploadFile({
           cloudPath: name,
           filePath: tempFilePaths,
           success: res => {
+            wx.hideLoading()
             this.setData({
               image: res.fileID,
               imgUrl: tempFilePaths
             })
             httpModel._showError("上传成功")
           }, fail: res => {
-            console.log(res)
+            wx.hideLoading()
             httpModel._showError("上传失败")
           }
         })
@@ -102,15 +106,19 @@ Page({
         httpModel._showError("音乐格式错误")
         return
       }
-      url += "http://music.163.com/song/media/outer/url?id=" + url + ".mp3"
+      url = "http://music.163.com/song/media/outer/url?id=" + url + ".mp3"
     }
     cloudModel.addCloud("like", { title, content, url, num, type, image, time },
       success => {
-        httpModel._showError("上传成功")
-        document.getElementById("reset").click()
+        httpModel._showError("添加成功")
+        this.setData({
+          title: "",
+          content: ""
+        })
+        // document.getElementById("reset").click()
       }, fail => {
         console.log(fail)
-        httpModel._showError("上传失败")
+        httpModel._showError("添加失败")
       }
     )
 

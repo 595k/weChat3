@@ -34,12 +34,12 @@ Page({
         total: data.index
       })
       //获取云数据
-      cloudModel.getLatest("like", success => {
-        console.log(success)
+      cloudModel.getLatest("like", this.data.total, success => {
+        // console.log(success)
         this.setData({
           classic: success,
-          index: this.data.index + success.count,
-          total: this.data.total + success.count,
+          index: success.index,
+          total: success.index,
           like: 0,
           count: 0
         })
@@ -49,13 +49,16 @@ Page({
 
   //设置点赞
   onLike2: function (event) {
-    likeModel.setLike(event.detail.classic_type, this.data.classic.id, this.data.classic.type)
+    if (this.data.index <= 8) {
+      likeModel.setLike(event.detail.classic_type, this.data.classic.id, this.data.classic.type)
+    }
   },
 
   //获取上。下期的信息
   getClassic: function (event) {
     //判断该数据是否在云数据库中
-    if (!this.data.classic.id) {
+    let key = event.detail.type == "prev" ? this.data.index - 1 : this.data.index + 1
+    if (key > 8) {
       cloudModel.getClassic(event.detail.type, this.data.index, this.data.classic.time, success => {
         this.setData({
           classic: success,
@@ -70,6 +73,7 @@ Page({
       classicModel.getClassic(event.detail.type, this.data.classic.index, data => {
         this.setData({
           classic: data,
+          index: data.index,
           first: classicModel.isFirst(data.index),
           end: classicModel.isEnd(data.index, this.data.total),
         })
